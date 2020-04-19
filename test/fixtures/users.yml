@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  imei: MyString
+  nin: MyString
+  infected: false
+  status: MyString
+
+two:
+  imei: MyString
+  nin: MyString
+  infected: false
+  status: MyString

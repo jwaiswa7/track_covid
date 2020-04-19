@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("POSTGRES_HOST", 'localhost') %>
+  user: <%= ENV.fetch("POSTGRES_USER") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: track_covid_development
+
+test:
+  <<: *default
+  database: track_covid_test
+
+production:
+  <<: *default
+  database: track_covid_production
+  username: track_covid
+  password: <%= ENV['TRACK_COVID_DATABASE_PASSWORD'] %>

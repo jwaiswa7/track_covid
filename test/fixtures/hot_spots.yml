@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  long: MyString
+  lat: MyString
+  hits: 1
+  infected: 1
+
+two:
+  name: MyString
+  long: MyString
+  lat: MyString
+  hits: 1
+  infected: 1
