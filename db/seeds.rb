@@ -16,10 +16,8 @@ def create_user
 end
 
 def create_hot_spot
-	while HotSpot.count < 5
-	  puts "creating Hot spot #{HotSpot.count}"
-	  HotSpot.create([{name: Faker::Company.name, street: 'Nukmba University', country: 'Uganda' }])
-    end
+	  puts "creating Hot spots"
+	  HotSpot.create([{name: 'Nkumba University', street: 'Nukmba University', country: 'Uganda' }, {name: 'Entebbe Airport', street: 'Entebbe Airport', country: 'Uganda' }, {name: 'Victorial mall', street: 'Victoria Mall', country: 'Uganda' }, {name: 'Imperial Mall', street: 'Imperial Mall', country: 'Uganda' }])
 end
 
 def create_movement
