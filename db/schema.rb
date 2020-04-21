@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 2020_04_19_150456) do
 
   create_table "hot_spots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "long"
-    t.string "lat"
+    t.string "longitude"
+    t.string "latitude"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
     t.integer "hits"
     t.integer "infected"
     t.datetime "created_at", precision: 6, null: false
@@ -39,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_150456) do
     t.string "imei"
     t.string "nin"
     t.boolean "infected", default: false, null: false
-    t.string "status"
+    t.string "status", default: "green", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
