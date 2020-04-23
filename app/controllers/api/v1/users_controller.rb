@@ -15,7 +15,7 @@ module Api
         def create
             user_track_params
             @user = User.track(user_track_params)
-            render :json => @user
+            render :json => {"success": "registered"}
         end
 
     	private
