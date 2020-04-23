@@ -9,13 +9,13 @@ module Api
     	end
 
     	def show
-    		render :json => @user
+    		render json: @user
     	end
 
         def create
             user_track_params
             @user = User.track(user_track_params)
-            render :json => {"success": "registered"}
+            render json: @user 
         end
 
     	private

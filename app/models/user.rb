@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 	has_many :movements
-	has_many :hot_spots,  through: :movements
+	has_many :hot_spots, -> { distinct }, through: :movements
 
 	validates :status, inclusion: { in: %w[green yellow red] }, allow_nil: false
     
@@ -30,6 +30,7 @@ class User < ApplicationRecord
             latitude = args[:latitude]
             #start sideqik worker to cehck if the user is near any location 
             TrackWorker.perform_async(user.id, longitude,latitude)
+            return user
           end
         end
     end
