@@ -21,7 +21,11 @@ module Api
     	private
 
     	def set_user
-    		@user = User.find_by_imei(params[:id])
+    		user = User.find_by_imei(params[:id])
+        if !user
+          user = User.create(imei: params[:id])
+        end 
+        @user = user
     	end
 
         def user_track_params
