@@ -29,7 +29,7 @@ class User < ApplicationRecord
             longitude = args[:longitude]
             latitude = args[:latitude]
             #start sideqik worker to cehck if the user is near any location 
-            TrackWorker.perform_async(user, longitude,latitude)
+            TrackWorker.perform_async(user.id, longitude,latitude)
           end
         end
     end

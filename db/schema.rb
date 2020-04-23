@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_150456) do
 
   create_table "hot_spots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "longitude"
-    t.string "latitude"
+    t.float "longitude"
+    t.float "latitude"
     t.string "street"
     t.string "city"
     t.string "state"
