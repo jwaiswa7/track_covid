@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api,  constraints: { format: 'json' }  do
     namespace :v1 do
-      resources :users 
+      resources :users, only: [:show, :create]
       resources :hot_spots
     end 
   end
