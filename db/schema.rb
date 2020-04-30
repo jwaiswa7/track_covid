@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_150456) do
     t.string "country"
     t.integer "hits"
     t.integer "infected"
+    t.boolean "transport", default: false
+    t.string "identification"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

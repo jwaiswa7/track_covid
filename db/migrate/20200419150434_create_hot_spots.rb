@@ -10,6 +10,8 @@ class CreateHotSpots < ActiveRecord::Migration[6.0]
       t.string :country
       t.integer :hits
       t.integer :infected
+      t.boolean :transport, default: false
+      t.string :identification
 
       t.timestamps
     end

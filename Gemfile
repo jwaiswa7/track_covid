@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'geocoder'
 
+gem 'rqrcode'
+
 gem "sidekiq", "~> 6.0", ">= 6.0.3"
 
 gem 'active_model_serializers'

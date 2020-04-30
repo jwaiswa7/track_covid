@@ -20,14 +20,14 @@ class User < ApplicationRecord
     class << self
         def track(args)
           raise "Not a hash type" if args.class != Hash
-          imei = args[:imei]
+          imei = args["imei"]
           user = User.find_by_imei(imei)
           if !user
             user = User.create(imei: imei) 
           end
-          if args[:longitude] && args[:latitude]
-            longitude = args[:longitude]
-            latitude = args[:latitude]
+          if args["longitude"] && args["latitude"]
+            longitude = args["longitude"]
+            latitude = args["latitude"]
             #start sideqik worker to cehck if the user is near any location 
             TrackWorker.perform_async(user.id, longitude,latitude)
             return user

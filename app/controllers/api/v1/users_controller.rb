@@ -13,9 +13,18 @@ module Api
     	end
 
         def create
-            user_track_params
-            @user = User.track(user_track_params)
-            render json: @user 
+
+            if user_params["longitude"].present?
+              user = User.track(user_params)
+            elsif user_params["transport"].present?
+              user = User.find_by_imei(user_params["imei"])
+              hot_spot = HotSpot.find(user_params["transport"])
+              Movement.create!(user: user, hot_spot: hot_spot)
+            else
+              user = nil
+            end
+                
+            render json: user 
         end
 
     	private
@@ -28,14 +37,9 @@ module Api
         @user = user
     	end
 
-        def user_track_params
-           {
-              imei: params[:imei], 
-              longitude: params[:longitude], 
-              latitude: params[:latitude],
-              nin: params[:nin]
-            }
-            
+        def user_params 
+           params.require(:data)
+                 .permit(:imei,:nin,:longitude,:latitude,:transport)        
         end
     end
   end
