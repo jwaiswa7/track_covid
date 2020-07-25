@@ -1,9 +1,9 @@
 class HotSpot < ApplicationRecord
 
 	geocoded_by :address
-    after_validation :geocode
+  after_validation :geocode
 
-    has_many :movements
+  has_many :movements
     
 	def address
 		[street, city, state, country].compact.join(', ')
