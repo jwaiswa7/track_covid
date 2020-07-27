@@ -4,9 +4,9 @@ class CreateHotSpots < ActiveRecord::Migration[6.0]
       t.string :name
       t.float :longitude
       t.float :latitude
-      t.string :street 
-      t.string :city 
-      t.string :state 
+      t.string :street
+      t.string :city
+      t.string :state
       t.string :country
       t.integer :hits
       t.integer :infected

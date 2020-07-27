@@ -8,26 +8,23 @@
 require 'faker'
 
 def create_user
-	
-	while User.count < 5
-      puts "creating user #{User.count}"
-      User.create([{imei: Faker::Code.imei , nin: Faker::Code.nric }])
+  while User.count < 5
+    puts "creating user #{User.count}"
+    User.create([{ imei: Faker::Code.imei, nin: Faker::Code.nric }])
     end
 end
 
 def create_hot_spot
-	  puts "creating Hot spots"
-	  HotSpot.create([{name: 'Nkumba University', street: 'Nukmba University', country: 'Uganda' }, {name: 'Entebbe Airport', street: 'Entebbe Airport', country: 'Uganda' }, {name: 'Victorial mall', street: 'Victoria Mall', country: 'Uganda' }, {name: 'Imperial Mall', street: 'Imperial Mall', country: 'Uganda' }])
+  puts 'creating Hot spots'
+  HotSpot.create([{ name: 'Nkumba University', street: 'Nukmba University', country: 'Uganda' }, { name: 'Entebbe Airport', street: 'Entebbe Airport', country: 'Uganda' }, { name: 'Victorial mall', street: 'Victoria Mall', country: 'Uganda' }, { name: 'Imperial Mall', street: 'Imperial Mall', country: 'Uganda' }])
 end
 
 def create_movement
-	return if Movement.count > 0
-	puts "creating movement"
-	Movement.create([{user: User.first, hot_spot_id: HotSpot.first.id}])
+  return if Movement.count > 0
 
-
+  puts 'creating movement'
+  Movement.create([{ user: User.first, hot_spot_id: HotSpot.first.id }])
 end
-
 
 create_user
 create_hot_spot

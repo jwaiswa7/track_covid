@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :imei
       t.string :nin
       t.boolean :infected, null: false, default: false
-      t.string :status, null: false, default: "green"
+      t.string :status, null: false, default: 'green'
 
       t.timestamps
     end
