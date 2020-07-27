@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
     class << self
         def track(args)
-          raise "Not a hash type" if args.class != Hash
+          # raise "Not a hash type" if args.class != Hash
           imei = args["imei"]
           user = User.find_by_imei(imei)
           if !user

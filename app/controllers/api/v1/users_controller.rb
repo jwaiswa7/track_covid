@@ -13,7 +13,7 @@ module Api
     	end
 
         def create
-
+            Rails.logger.debug "User params: #{user_params.to_hash}"
             if user_params["longitude"].present?
               user = User.track(user_params)
             elsif user_params["transport"].present?
