@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Track Covid</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="<% root_path %>">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= destroy_member_session_path %>">Sign out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row justify-content-center">
+  <div class="col-10">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Hits</th>
+        <th>Infected</th>
+        <th>Identification</th>
+        <th>QR Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hotspots.each do |h| %>
+        <tr>
+          <td><%= h.address %></td>
+          <td><%= h.hits.nil?? 0: h.hits %></td>
+          <td><%= h.infected.nil?? 0:h.infected %></td>
+          <td><%= h.transport?? h.identification : "" %></td>
+          <td><%= image_tag "http://35.179.92.187/qr_codes/#{h.id}.png", class: "img-thumbnail" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

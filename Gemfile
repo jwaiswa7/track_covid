@@ -35,7 +35,6 @@ gem 'rqrcode'
 
 gem 'devise'
 
-
 gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 
 gem 'active_model_serializers'
