@@ -18,10 +18,12 @@ class User < ApplicationRecord
 
   class << self
     def track(args)
+      Rails.logger.debug "User #{args}"
       # raise "Not a hash type" if args.class != Hash
       imei = args['imei']
       user = User.find_by(imei: imei)
       user ||= User.create(imei: imei)
+      Rails.logger.debug "User being asked: #{user.to_json}"
       if args['longitude'] && args['latitude']
         longitude = args['longitude']
         latitude = args['latitude']
