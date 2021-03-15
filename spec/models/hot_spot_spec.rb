@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe HotSpot, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	let(:hot_spot) { FactoryBot.create :hot_spot }
+
+	it "is a valid record" do 
+		expect(hot_spot).to be_valid
+	end
 end
